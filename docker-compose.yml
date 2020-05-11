@@ -1,6 +1,7 @@
 version: "3"
 
 services:
+
   api-server:
     build:
       context: ./api-server
@@ -10,6 +11,12 @@ services:
       - /opt/pdftron-collab-server/api-server/node_modules
     ports:
       - "3000:3000"
+    environment:
+      - MONGO_URL=mongodb://mongo:27017/workpacks
+      - WAIT_HOSTS=mongo:27017
+    depends_on:
+      - mongo
+
   ws-server:
     build:
       context: ./ws-server
@@ -19,6 +26,7 @@ services:
       - /opt/pdftron-collab-server/ws-server/node_modules
     ports:
       - "4000:4000"
+
   mongo:
     image: mongo
     ports:
