@@ -11,7 +11,9 @@ app.use(express.json())
 const server = http.createServer(app)
 const port = process.env.PORT || 4000
 server.listen(port)
-server.on('listening', () => console.log(`WS-SERVER listening on port ${port}`))
+server.on('listening', () => {
+  console.log(`WS-SERVER listening on port ${port}`)
+})
 
 const io = SocketIO(server)
 io.on('connection', (socket) => {

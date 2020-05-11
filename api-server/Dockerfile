@@ -1,7 +1,7 @@
 FROM node:lts-alpine
 
 # create app directory
-WORKDIR /opt/pdftron-collab-server/ws-server
+WORKDIR /opt/pdftron-collab-server/api-server
 
 # install app dependencies
 COPY package.json ./
@@ -11,6 +11,6 @@ RUN npm i
 COPY . .
 
 # expose port and start application
-EXPOSE 4000
+EXPOSE 3000
 
 CMD ["npm", "start"]
