@@ -6,9 +6,7 @@ services:
     build:
       context: ./api-server
       dockerfile: Dockerfile
-    volumes:
-      - ./api-server:/opt/pdftron-collab-server/api-server
-      - /opt/pdftron-collab-server/api-server/node_modules
+
     ports:
       - "3000:3000"
     environment:
@@ -21,9 +19,7 @@ services:
     build:
       context: ./ws-server
       dockerfile: Dockerfile
-    volumes:
-      - ./ws-server:/opt/pdftron-collab-server/ws-server
-      - /opt/pdftron-collab-server/ws-server/node_modules
+
     ports:
       - "4000:4000"
 
@@ -31,5 +27,11 @@ services:
     image: mongo
     ports:
       - "27017:27017"
-    volumes:
-      - ./.volumes/mgdata:/data/db
+
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8080:8081
+
