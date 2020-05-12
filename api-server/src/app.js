@@ -36,8 +36,16 @@ app.post('/api/annotations', async (req, res) => {
       })
       break
     }
-    case 'modify':
-      break
+    case 'modify':{
+      try{
+        let doc = await Annotations.findOneAndUpdate({annotationId: annotationId}, {xfdf:xfdf})
+        console.log(doc)
+      }catch(err) {
+        console.log(err)
+      }
+      
+       break
+    }
     case 'delete':
       break
     default:
