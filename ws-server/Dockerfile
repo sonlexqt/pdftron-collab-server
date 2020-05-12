@@ -7,7 +7,6 @@ WORKDIR /opt/pdftron-collab-server/ws-server
 COPY package.json package-lock.json* ./
 RUN npm install --no-optional && npm cache clean --force
 
-
 # copy app source code
 COPY . .
 
