@@ -46,8 +46,13 @@ app.post('/api/annotations', async (req, res) => {
       
        break
     }
-    case 'delete':
+    case 'delete':{
+      
+      await Annotations.findOneAndRemove({annotationId: annotationId})
       break
+    }
+      
     default:
+      break
   }
 })
