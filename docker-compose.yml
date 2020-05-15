@@ -29,9 +29,9 @@ services:
       - "27017:27017"
 
 
-  mongo-express:
-    image: mongo-express
-    restart: always
-    ports:
-      - 8080:8081
+  # mongo-express:
+  #   image: mongo-express
+  #   restart: always
+  #   ports:
+  #     - 8080:8081
 
